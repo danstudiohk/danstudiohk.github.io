@@ -6,11 +6,11 @@ function makeChart(players) {
   //   "Gender": "Female"
   // }
 
-  var playerLabels = players.map(function(d) {
-    return d.Name;
+  var insurersLabels = players.map(function(d) {
+    return d.Insurer;
   });
-  var weeksData = players.map(function(d) {
-    return +d.Weeks;
+  var anpData = players.map(function(d) {
+    return +d.ANP;
   });
 
   var chart = new Chart('chart', {
@@ -22,10 +22,10 @@ function makeChart(players) {
       }
     },
     data: {
-      labels: playerLabels,
+      labels: insurersLabels,
       datasets: [
         {
-          data: weeksData
+          data: anpData
         }
       ]
     }
@@ -34,5 +34,5 @@ function makeChart(players) {
 
 // Request data using D3
 d3
-  .csv("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2814973/atp_wta.csv")
+  .csv("csv/4q21long_tableL1.csv")
   .then(makeChart);
