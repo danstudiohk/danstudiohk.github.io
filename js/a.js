@@ -5,7 +5,7 @@ function makeChart(players) {
   //   "Weeks": "377",
   //   "Gender": "Female"
   // }
-
+  players.sort(d3.descending) 
   var insurersLabels = players.map(function(d) {
     return d.Insurer;
   });
@@ -34,5 +34,5 @@ function makeChart(players) {
 
 // Request data using D3
 d3
-  .csv("csv/4q21long_tableL1.csv")
+  .csv("https://raw.githubusercontent.com/danstudiohk/danstudiohk.github.io/main/csv/4q21long_tableL1.csv")
   .then(makeChart);
